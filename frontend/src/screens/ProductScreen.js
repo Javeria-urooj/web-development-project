@@ -38,18 +38,18 @@ export default function ProductScreen(props) {
           <Link to="/">Back to result</Link>
           <div className="row top">
             
-            <div className="col-1 marg-le">
+            <div className="col-2" style={{marginLeft: "300px"}}>
               <img
                 className="medium"
                 src={product.image}
                 alt={product.name}
               ></img>
             </div>
-            <div className="col-1 marg-righ">
+            <div className="col-1" style={{marginLeft: "-200px", marginRight: "200px"}}>
               <div className="card card-body">
                 <ul>
                   <li>
-                    {product.name}
+                    Seller{' '}
                     <h2>
                       <Link to={`/seller/${product.seller._id}`}>
                         {product.seller.name}
@@ -57,23 +57,15 @@ export default function ProductScreen(props) {
                     </h2>
                   </li>
                   <li>
+                    <p>{product.name}</p>
+                  </li>
+                  <li>
                     <div className="row">
                       <div>Price</div>
                       <div className="price">${product.price}</div>
                     </div>
                   </li>
-                  <li>
-                    <div className="row">
-                      <div>Status</div>
-                      <div>
-                        {product.countInStock > 0 ? (
-                          <span className="success">In Stock</span>
-                        ) : (
-                          <span className="danger">Unavailable</span>
-                        )}
-                      </div>
-                    </div>
-                  </li>
+                 
                   {product.countInStock > 0 && (
                     <>
                       <li>
@@ -108,7 +100,6 @@ export default function ProductScreen(props) {
                 </ul>
               </div>
             </div>
-            <div className="col-1"></div>
           </div>
         </div>
       )}

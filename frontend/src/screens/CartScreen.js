@@ -33,7 +33,7 @@ export default function CartScreen(props) {
         {error && <MessageBox variant="danger">{error}</MessageBox>}
         {cartItems.length === 0 ? (
           <MessageBox>
-            List is empty. <Link to="/">Go Browsing</Link>
+            Cart is empty. <Link to="/">Go Browsing</Link>
           </MessageBox>
         ) : (
           <ul>
@@ -82,7 +82,7 @@ export default function CartScreen(props) {
         )}
       </div>
       <div className="col-1">
-        <div className="card card-body">
+        <div className="card card-body" style={{marginTop: "100px"}}>
           <ul>
             <li>
               <h2>

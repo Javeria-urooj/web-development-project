@@ -10,7 +10,7 @@ const productRouter = express.Router();
 productRouter.get(
   '/',
   expressAsyncHandler(async (req, res) => {
-    const pageSize = 3;
+    const pageSize = 10;
     const page = Number(req.query.pageNumber) || 1;
     const name = req.query.name || '';
     const category = req.query.category || '';
@@ -54,8 +54,7 @@ productRouter.get(
     })
       .populate('seller', 'seller.name seller.logo')
       .sort(sortOrder)
-      .skip(pageSize * (page - 1))
-      .limit(pageSize);
+      .skip(pageSize * (page - 1));
     res.send({ products, page, pages: Math.ceil(count / pageSize) });
   })
 );
@@ -150,7 +149,6 @@ productRouter.put(
 productRouter.delete(
   '/:id',
   isAuth,
-  isAdmin,
   expressAsyncHandler(async (req, res) => {
     const product = await Product.findById(req.params.id);
     if (product) {

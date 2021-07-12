@@ -68,12 +68,12 @@ function App() {
             ></Route>
           </div>
           <div>
-           {userInfo ? (<Link to="/cart">
-              Books to borrow
+            <Link to="/cart">
+              Cart
               {cartItems.length > 0 && (
                 <span className="badge">{cartItems.length}</span>
               )}
-            </Link>) : ''}
+            </Link>
             {userInfo ? (
               <div className="dropdown">
                 <Link to="#">

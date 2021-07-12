@@ -11,6 +11,7 @@ export default function ShippingAddressScreen(props) {
   const { shippingAddress } = cart;
   const [lat, setLat] = useState(shippingAddress.lat);
   const [lng, setLng] = useState(shippingAddress.lng);
+  
 
   if (!userInfo) {
     props.history.push('/signin');
@@ -23,9 +24,9 @@ export default function ShippingAddressScreen(props) {
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
-   
+    
     let moveOn = true;
-   
+  
     if (moveOn) {
       dispatch(
         saveShippingAddress({
@@ -33,7 +34,7 @@ export default function ShippingAddressScreen(props) {
           address,
           city,
           postalCode,
-          country,
+          country
         })
       );
       props.history.push('/payment');
@@ -115,6 +116,7 @@ export default function ShippingAddressScreen(props) {
             required
           ></input>
         </div>
+       
         <div>
           <label />
           <button className="primary" type="submit">
